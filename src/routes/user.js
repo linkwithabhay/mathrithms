@@ -69,9 +69,13 @@ router.get("/", (req, res) => {
   res.json(JSON.stringify(userData));
 });
 
-router.get("/$userid", (req, res) => {
-  console.log(userid);
-  console.log(req);
+router.get("/:userid", (req, res) => {
+  const { userid } = req.params;
+  for (let obj of userData) {
+    if (obj.id === Number(userid)) {
+      res.json(JSON.stringify(obj));
+    }
+  }
 });
 
 export default router;
