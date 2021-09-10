@@ -76,6 +76,7 @@ router.get("/:userid", (req, res) => {
       res.json(JSON.stringify(obj));
     }
   }
+  res.send(`No user found with id: ${userid}`);
 });
 
 export default router;
