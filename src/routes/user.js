@@ -66,17 +66,17 @@ const userData = [
 ];
 
 router.get("/", (req, res) => {
-  res.json(JSON.stringify(userData));
+  res.status(200).json(userData);
 });
 
 router.get("/:userid", (req, res) => {
   const { userid } = req.params;
   for (let obj of userData) {
     if (obj.id === Number(userid)) {
-      res.json(JSON.stringify(obj));
+      res.status(200).json(obj);
     }
   }
-  res.send(`No user found with id: ${userid}`);
+  res.status(404).send(`No user found with id: ${userid}`);
 });
 
 export default router;
